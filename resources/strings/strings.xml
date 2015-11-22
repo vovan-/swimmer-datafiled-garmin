@@ -1,5 +1,5 @@
 <strings>
-    <string id="AppName">${appName}</string>
+    <string id="AppName">SwimmersField</string>
 
     <string id="labelDistance">Distance</string>
     <string id="labelElapsedTime">Timer</string>
