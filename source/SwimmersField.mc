@@ -1,6 +1,6 @@
 using Toybox.Application as App;
 
-class swimmerdafafieldgarminApp extends App.AppBase {
+class SwimmersField extends App.AppBase {
 
     function initialize() {
         AppBase.initialize();
@@ -16,7 +16,7 @@ class swimmerdafafieldgarminApp extends App.AppBase {
 
     //! Return the initial view of your application here
     function getInitialView() {
-        return [ new swimmerdafafieldgarminView() ];
+        return [ new SwimmersFieldView() ];
     }
 
 }

@@ -1,22 +1,20 @@
 <layouts>
-    <!-- A generic, centered layout. -->
-    <layout id="MainLayout">	
+    <layout id="MainLayout">
         <drawable class="Background" />
-        <label id="labelElapsedTime" x="158" y="52" color="Gfx.COLOR_DK_GRAY" justification="Gfx.TEXT_JUSTIFY_LEFT" font="Gfx.FONT_XTINY" />
-        <label id="valueElapsedTime" x="center" y="-5" color="Gfx.COLOR_WHITE" justification="Gfx.TEXT_JUSTIFY_CENTER" font="Gfx.FONT_NUMBER_HOT" />
-        <label id="labelDistance" x="158" y="73" color="Gfx.COLOR_DK_GRAY" justification="Gfx.TEXT_JUSTIFY_LEFT" font="Gfx.FONT_XTINY" />
-        <label id="valueDistance" x="158" y="52" color="Gfx.COLOR_WHITE" justification="Gfx.TEXT_JUSTIFY_RIGHT" font="Gfx.FONT_NUMBER_THAI_HOT" />
-        <label id="labelUnits" x="158" y="80" color="Gfx.COLOR_DK_GRAY" justification="Gfx.TEXT_JUSTIFY_LEFT" font="Gfx.FONT_NUMBER_HOT" />
-        <label id="labelTime" x="158" y="153" color="Gfx.COLOR_DK_GRAY" justification="Gfx.TEXT_JUSTIFY_LEFT" font="Gfx.FONT_XTINY" />
-        <label id="valueTime" x="center" y="139" color="Gfx.COLOR_DK_GRAY" justification="Gfx.TEXT_JUSTIFY_CENTER" font="Gfx.FONT_NUMBER_HOT" />
-        <label id="labelTimeAmPm" x="170" y="165" color="Gfx.COLOR_DK_GRAY" justification="Gfx.TEXT_JUSTIFY_CENTER" font="Gfx.FONT_MEDIUM" />
+        <label id="lElapsed" x="158" y="52" font="Gfx.FONT_XTINY" />
+        <label id="vElapsed" x="center" y="-5" justification="Gfx.TEXT_JUSTIFY_CENTER" font="Gfx.FONT_NUMBER_HOT"/>
+        <label id="lDist" x="158" y="73" font="Gfx.FONT_XTINY" />
+        <label id="vDist" x="158" y="52" justification="Gfx.TEXT_JUSTIFY_RIGHT" font="Gfx.FONT_NUMBER_THAI_HOT"/>
+        <label id="lUnits" x="158" y="80" font="Gfx.FONT_NUMBER_HOT" />
+        <label id="lTime" x="158" y="153" font="Gfx.FONT_XTINY" />
+        <label id="vTime" x="center" y="139" color="Gfx.COLOR_DK_GRAY" justification="Gfx.TEXT_JUSTIFY_CENTER" font="Gfx.FONT_NUMBER_HOT"/>
+        <label id="lTimeAmPm" x="170" y="165" justification="Gfx.TEXT_JUSTIFY_CENTER"/>
     </layout>
-
     <!-- Layouts used for the for the top of two halves. -->
     <layout id="TwoFieldsLayout">
         <drawable class="Background" />
-        <label id="labelDistance" x="center" y="5" color="Gfx.COLOR_DK_GRAY" justification="Gfx.TEXT_JUSTIFY_CENTER" font="Gfx.FONT_XTINY" />
-        <label id="valueDistance" x="168" y="5" color="Gfx.COLOR_WHITE" justification="Gfx.TEXT_JUSTIFY_RIGHT" font="Gfx.FONT_NUMBER_THAI_HOT" />
-        <label id="labelUnits" x="170"	 y="33" color="Gfx.COLOR_DK_GRAY" justification="Gfx.TEXT_JUSTIFY_LEFT" font="Gfx.FONT_NUMBER_HOT" />
+        <label id="lDist" x="center" y="5" justification="Gfx.TEXT_JUSTIFY_CENTER" font="Gfx.FONT_XTINY"/>
+        <label id="vDist" x="168" y="5" justification="Gfx.TEXT_JUSTIFY_RIGHT" font="Gfx.FONT_NUMBER_THAI_HOT"/>
+        <label id="lUnits" x="170" y="33" font="Gfx.FONT_NUMBER_HOT"/>
     </layout>
 </layouts>

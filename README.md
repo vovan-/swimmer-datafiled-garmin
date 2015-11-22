@@ -54,5 +54,9 @@ You should see the SwimmersField Data Field.
 
 ===============================================
 
+## Changelog 1.1.2
+* Reduced memory footprint
+* Fixed error with displaying data field
+
 ## Changelog 1.0.0
 * Initial commit
