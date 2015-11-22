@@ -1,0 +1,7 @@
+<strings>
+    <string id="AppName">${appName}</string>
+
+    <string id="labelDistance">Distance</string>
+    <string id="labelElapsedTime">Timer</string>
+    <string id="labelTime">TOD</string>
+</strings>
