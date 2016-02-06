@@ -2,8 +2,8 @@
 
 ![SwimmersField Screenshot](/docs/img/SwimmersField-emulator.png)
 
-SwimmersField Data Filed for Garmin Connect IQ store.
-This is a free complex Data Field for the Fenix 3 watch that shows multiple values as a single field or as a top field of two fields layout. 
+Updated SwimmersField Data Filed for Garmin Connect IQ store.
+This is a free complex Data Field for the Fenix 3 watch that shows multiple values in a single field layout. 
 SwimmersField is open source, its code can be found at github: https://github.com/vovan-/swimmer-datafiled-garmin
 
 
@@ -53,6 +53,13 @@ Start Swim activity.
 You should see the SwimmersField Data Field.
 
 ===============================================
+
+## Changelog 1.1.3
+* Added wide custom font for the distance
+* Increased timer font to the biggest standard font
+* Changed layout management type + some colors changed
+* Reduced memory footprint so that custom font can be added
+* Only single field layout is supported from now to reduce memory footprint
 
 ## Changelog 1.1.2
 * Reduced memory footprint

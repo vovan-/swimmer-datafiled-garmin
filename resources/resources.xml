@@ -1,0 +1,5 @@
+<resources>
+	<fonts>
+    	<font id="bigFont" filename="fonts/bigFont.fnt" filter="0123456789"/>
+    </fonts>
+</resources>
