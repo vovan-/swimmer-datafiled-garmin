@@ -99,16 +99,21 @@ class SwimmersFieldView extends Ui.DataField {
 		dc.drawText(174, 60, Gfx.FONT_XTINY, "Timer", Gfx.TEXT_JUSTIFY_LEFT);
 		dc.drawText(174, 72, Gfx.FONT_XTINY, "Dist", Gfx.TEXT_JUSTIFY_LEFT);
 		dc.drawText(200, 72, Gfx.FONT_XTINY, (isMetric ? "m" : "yd"), Gfx.TEXT_JUSTIFY_LEFT);
-		dc.drawText(174, 153, Gfx.FONT_XTINY, "TOD", Gfx.TEXT_JUSTIFY_LEFT);
-		var amPm = is24Hour ? "" : ((System.getClockTime().hour < 12) ? "am" : "pm");
-		dc.drawText(170, 165, Gfx.FONT_MEDIUM, amPm, Gfx.TEXT_JUSTIFY_CENTER);
     	
     	// Draw values
     	dc.setColor((bgColor != Gfx.COLOR_BLACK ? Gfx.COLOR_BLACK: Gfx.COLOR_WHITE), Graphics.COLOR_TRANSPARENT);
         dc.drawText(215, 73, font, distVal, Gfx.TEXT_JUSTIFY_RIGHT);
     	dc.setColor((bgColor != Gfx.COLOR_BLACK ? Gfx.COLOR_DK_BLUE: Gfx.COLOR_BLUE), Graphics.COLOR_TRANSPARENT);
         dc.drawText(dc.getWidth()/2, -12, Gfx.FONT_NUMBER_THAI_HOT, elapsedVal, Gfx.TEXT_JUSTIFY_CENTER);
-    	dc.setColor((getBackgroundColor() != Gfx.COLOR_BLACK ? Gfx.COLOR_DK_GRAY : Gfx.COLOR_LT_GRAY), Graphics.COLOR_TRANSPARENT);
-        dc.drawText(dc.getWidth()/2, 139, Gfx.FONT_NUMBER_HOT, calcTime(), Gfx.TEXT_JUSTIFY_CENTER);
+        
+        // Draw time related labels and values, if there is enough space on screen for time
+        if (dc.getHeight() > 180) {
+    		dc.setColor((bgColor != Gfx.COLOR_BLACK ? Gfx.COLOR_LT_GRAY : Gfx.COLOR_DK_GRAY), Graphics.COLOR_TRANSPARENT);
+			dc.drawText(174, 153, Gfx.FONT_XTINY, "TOD", Gfx.TEXT_JUSTIFY_LEFT);
+			var amPm = is24Hour ? "" : ((System.getClockTime().hour < 12) ? "am" : "pm");
+			dc.drawText(170, 165, Gfx.FONT_MEDIUM, amPm, Gfx.TEXT_JUSTIFY_CENTER);
+    		dc.setColor((getBackgroundColor() != Gfx.COLOR_BLACK ? Gfx.COLOR_DK_GRAY : Gfx.COLOR_LT_GRAY), Graphics.COLOR_TRANSPARENT);
+        	dc.drawText(dc.getWidth()/2, 139, Gfx.FONT_NUMBER_HOT, calcTime(), Gfx.TEXT_JUSTIFY_CENTER);
+        }
     }
 }

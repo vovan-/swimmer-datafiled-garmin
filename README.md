@@ -54,6 +54,11 @@ You should see the SwimmersField Data Field.
 
 ===============================================
 
+## Changelog 1.1.4
+* Added support for Forerunner 230, 235, 630, Fenix 3 Hr, 
+as was asked in support forum: 
+https://forums.garmin.com/showthread.php?335085-Data-Field-SwimmersField&p=769461#post769461
+
 ## Changelog 1.1.3
 * Added wide custom font for the distance
 * Increased timer font to the biggest standard font
