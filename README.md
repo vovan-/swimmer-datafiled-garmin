@@ -54,6 +54,11 @@ You should see the SwimmersField Data Field.
 
 ===============================================
 
+## Changelog 1.1.5
+* Increased timer font
+* Added outlines to timer and TOD fields
+* Changed color of timer font as it was difficult to read under the water
+
 ## Changelog 1.1.4
 * Added support for Forerunner 230, 235, 630, Fenix 3 Hr, 
 as was asked in support forum: 

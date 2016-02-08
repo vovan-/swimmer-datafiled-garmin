@@ -103,8 +103,8 @@ class SwimmersFieldView extends Ui.DataField {
     	// Draw values
     	dc.setColor((bgColor != Gfx.COLOR_BLACK ? Gfx.COLOR_BLACK: Gfx.COLOR_WHITE), Graphics.COLOR_TRANSPARENT);
         dc.drawText(215, 73, font, distVal, Gfx.TEXT_JUSTIFY_RIGHT);
-    	dc.setColor((bgColor != Gfx.COLOR_BLACK ? Gfx.COLOR_DK_BLUE: Gfx.COLOR_BLUE), Graphics.COLOR_TRANSPARENT);
-        dc.drawText(dc.getWidth()/2, -12, Gfx.FONT_NUMBER_THAI_HOT, elapsedVal, Gfx.TEXT_JUSTIFY_CENTER);
+    	//dc.setColor((bgColor != Gfx.COLOR_BLACK ? 0x000070: Gfx.COLOR_BLUE), Graphics.COLOR_TRANSPARENT);
+        txtVsOutline(dc.getWidth()/2, -13, Gfx.FONT_NUMBER_THAI_HOT, elapsedVal, Gfx.TEXT_JUSTIFY_CENTER, (bgColor != Gfx.COLOR_BLACK ? 0x101219: Gfx.COLOR_BLUE), (bgColor != Gfx.COLOR_BLACK ? Gfx.COLOR_DK_BLUE: Gfx.COLOR_WHITE), dc, 2);
         
         // Draw time related labels and values, if there is enough space on screen for time
         if (dc.getHeight() > 180) {
@@ -112,8 +112,18 @@ class SwimmersFieldView extends Ui.DataField {
 			dc.drawText(174, 153, Gfx.FONT_XTINY, "TOD", Gfx.TEXT_JUSTIFY_LEFT);
 			var amPm = is24Hour ? "" : ((System.getClockTime().hour < 12) ? "am" : "pm");
 			dc.drawText(170, 165, Gfx.FONT_MEDIUM, amPm, Gfx.TEXT_JUSTIFY_CENTER);
-    		dc.setColor((getBackgroundColor() != Gfx.COLOR_BLACK ? Gfx.COLOR_DK_GRAY : Gfx.COLOR_LT_GRAY), Graphics.COLOR_TRANSPARENT);
-        	dc.drawText(dc.getWidth()/2, 139, Gfx.FONT_NUMBER_HOT, calcTime(), Gfx.TEXT_JUSTIFY_CENTER);
+    		//dc.setColor((getBackgroundColor() != Gfx.COLOR_BLACK ? Gfx.COLOR_DK_GRAY : Gfx.COLOR_LT_GRAY), Graphics.COLOR_TRANSPARENT);
+        	txtVsOutline(dc.getWidth()/2, 139, Gfx.FONT_NUMBER_HOT, calcTime(), Gfx.TEXT_JUSTIFY_CENTER, (getBackgroundColor() != Gfx.COLOR_BLACK ? Gfx.COLOR_DK_GRAY : Gfx.COLOR_LT_GRAY), (getBackgroundColor() != Gfx.COLOR_BLACK ? Gfx.COLOR_BLACK : Gfx.COLOR_WHITE), dc, 1);
         }
+    }
+    
+    function txtVsOutline(x, y, font, text, pos, outClr, txtClr, dc, delta) {
+    	dc.setColor(txtClr, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(x + delta, y, font, text, pos);
+        dc.drawText(x - delta, y, font, text, pos);
+        dc.drawText(x, y + delta, font, text, pos);
+        dc.drawText(x, y - delta, font, text, pos);
+    	dc.setColor(outClr, Graphics.COLOR_TRANSPARENT);
+        dc.drawText(x, y, font, text, pos);
     }
 }
