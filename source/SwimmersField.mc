@@ -37,10 +37,8 @@ class SwimmersFieldView extends Ui.DataField {
 
     function calcDist(info) {
         if (info != null && info.elapsedDistance != null && info.elapsedDistance > 0) {
-            var distInUnit = info.elapsedDistance * (isMetric ? 1 : 1.093);
-            var distStr = distInUnit.toString();
-            var commaPos = distStr.find(".");
-            return distStr.substring(0, commaPos);
+            var distInUnit = info.elapsedDistance * (isMetric ? 1.0d : 1.09361d);
+            return distInUnit.format("%.0f");
         }
         return "0";
     }
@@ -82,6 +80,7 @@ class SwimmersFieldView extends Ui.DataField {
     //! once a second when the data field is visible.
     function onUpdate(dc) {
         var bgColor = getBackgroundColor();
+    	dc.setColor(Gfx.COLOR_TRANSPARENT, bgColor);
     	dc.clear();
     	dc.setColor((bgColor != Gfx.COLOR_BLACK ? Gfx.COLOR_LT_GRAY : Gfx.COLOR_DK_GRAY), Graphics.COLOR_TRANSPARENT);
 
