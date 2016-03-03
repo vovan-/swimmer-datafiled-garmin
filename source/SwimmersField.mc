@@ -3,11 +3,6 @@ using Toybox.WatchUi as Ui;
 using Toybox.Graphics as Gfx;
 
 class SwimmersField extends App.AppBase {
-    function initialize() {
-        AppBase.initialize();
-    }
-
-    //! Return the initial view of your application here
     function getInitialView() {
         return [ new SwimmersFieldView() ];
     }
@@ -16,6 +11,7 @@ class SwimmersField extends App.AppBase {
 class SwimmersFieldView extends Ui.DataField {
     hidden var dist = "0";
     hidden var elaps = "0:00";
+    hidden var avgHR = 0;
     hidden var font;
 
     //! Constructor
@@ -28,6 +24,7 @@ class SwimmersFieldView extends Ui.DataField {
     function compute(info) {
         dist = calcDist(info);
         elaps = calcElapsed(info);
+    	avgHR = info.averageHeartRate;
     }
 
     function calcDist(info) {
@@ -67,25 +64,38 @@ class SwimmersFieldView extends Ui.DataField {
 
     	// Draw labels
 		dc.drawText(174, 60, Gfx.FONT_XTINY, "Timer", Gfx.TEXT_JUSTIFY_LEFT);
-		dc.drawText(174, 72, Gfx.FONT_XTINY, "Dist m", Gfx.TEXT_JUSTIFY_LEFT);
+		dc.drawText(174, 74, Gfx.FONT_XTINY, "Dist m", Gfx.TEXT_JUSTIFY_LEFT);
 
         // Draw time related labels and values
-		dc.drawText(174, 153, Gfx.FONT_XTINY, "TOD", Gfx.TEXT_JUSTIFY_LEFT);
-    	outlinedTxt(
-    		dc.getWidth()/2,
-    		139,
-    		Gfx.FONT_NUMBER_HOT, 
-    		Lang.format("$1$:$2$", [Toybox.System.getClockTime().hour, Toybox.System.getClockTime().min.format("%.2d")]),
-    		Gfx.TEXT_JUSTIFY_CENTER, 
-    		bgWt ? Gfx.COLOR_DK_GRAY : Gfx.COLOR_LT_GRAY,
-    		bgWt ? Gfx.COLOR_BLACK : Gfx.COLOR_WHITE,
-    		dc, 
-    		1);
-    	
+        if (avgHR == null || avgHR == 0) {
+            dc.drawText(174, 153, Gfx.FONT_XTINY, "TOD", Gfx.TEXT_JUSTIFY_LEFT);
+            outlinedTxt(
+                dc.getWidth()/2,
+                139,
+                Gfx.FONT_NUMBER_HOT,
+                Lang.format("$1$:$2$", [Toybox.System.getClockTime().hour, Toybox.System.getClockTime().min.format("%.2d")]),
+                Gfx.TEXT_JUSTIFY_CENTER,
+                bgWt ? Gfx.COLOR_DK_GRAY : Gfx.COLOR_LT_GRAY,
+                bgWt ? Gfx.COLOR_BLACK : Gfx.COLOR_WHITE,
+                dc,
+                1);
+        } else {
+            dc.drawText(172, 155, Gfx.FONT_XTINY, "A.HR", Gfx.TEXT_JUSTIFY_LEFT);
+            outlinedTxt(
+                dc.getWidth()/2,
+                143,
+                Gfx.FONT_NUMBER_HOT,
+                avgHR,
+                Gfx.TEXT_JUSTIFY_CENTER,
+                bgWt ? Gfx.COLOR_BLACK : Gfx.COLOR_BLUE,
+                bgWt ? Gfx.COLOR_RED : Gfx.COLOR_WHITE,
+                dc,
+                1);
+        }
 
     	// Draw values
     	dc.setColor((bgWt ? Gfx.COLOR_BLACK: Gfx.COLOR_WHITE), Graphics.COLOR_TRANSPARENT);
-        dc.drawText(215, 73, font, dist, Gfx.TEXT_JUSTIFY_RIGHT);
+        dc.drawText(215, 75, font, dist, Gfx.TEXT_JUSTIFY_RIGHT);
         outlinedTxt(
         	dc.getWidth()/2,
         	-13,
